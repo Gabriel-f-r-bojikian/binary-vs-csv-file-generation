@@ -1,0 +1,11 @@
+# File configuration
+pydantic
+# Data generation/IO
+numpy
+# Statitics
+scipy
+pandas
+# Working with time zones
+pytz
+# Plots
+matplotlib
