@@ -54,13 +54,16 @@ from tests import (
 
 
 def main():
-    # test_write_senoidal_data_points_speed()
-    # test_write_noisy_senoidal_data_points_speed()
-    # test_write_infinity_data_point_type_speed()
-    # test_write_negative_infinity_data_point_type_speed()
-    # test_write_nan_data_point_type_speed()
-    # test_write_zero_data_point_type_speed()
-    ###
+    print("Write Speed Test")
+
+    test_write_senoidal_data_points_speed()
+    test_write_noisy_senoidal_data_points_speed()
+    test_write_infinity_data_point_type_speed()
+    test_write_negative_infinity_data_point_type_speed()
+    test_write_nan_data_point_type_speed()
+    test_write_zero_data_point_type_speed()
+
+    print("File Size Test")
 
     test_file_size_in_senoidal_data_points()
     test_file_size_in_noisy_senoidal_data_points()

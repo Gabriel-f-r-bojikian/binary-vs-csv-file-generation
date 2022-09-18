@@ -1,5 +1,6 @@
 from .configs import (
     ONE_MEGA_BYTE,
+    MICROSSECONDS,
     DT_ENERGY_DISTRIBUTION,
     CURRENT_DIR,
     SOURCE_DIR,
