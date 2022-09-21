@@ -1,7 +1,7 @@
-import numpy as np
+from numpy import fromfile
 
 from configs import DT_ENERGY_DISTRIBUTION
 
 
 def read_binary_file(filename: str):
-    return np.fromfile(filename, dtype=DT_ENERGY_DISTRIBUTION)
+    return fromfile(filename, dtype=DT_ENERGY_DISTRIBUTION)
