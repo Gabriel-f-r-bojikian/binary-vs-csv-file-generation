@@ -1,7 +1,7 @@
-from numpy import genfromtxt
+from numpy import loadtxt
 
 from configs import DT_ENERGY_DISTRIBUTION
 
 
 def read_csv_file(filename: str):
-    return genfromtxt(filename, dtype=DT_ENERGY_DISTRIBUTION, delimiter=",")
+    return loadtxt(filename, dtype=DT_ENERGY_DISTRIBUTION, delimiter=",")

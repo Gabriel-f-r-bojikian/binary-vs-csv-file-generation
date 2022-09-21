@@ -50,11 +50,23 @@ from tests import (
     test_file_size_in_nan_data_type_data_points,
     test_file_size_in_zero_data_type_data_points,
     # Read data
+    test_read_senoidal_data_points_speed,
+    test_read_noisy_senoidal_data_points_speed,
+    test_read_infinity_data_point_type_speed,
+    test_read_negative_infinity_data_point_type_speed,
+    test_read_nan_data_point_type_speed,
+    test_read_zero_data_point_type_speed,
 )
 
 
 def main():
-    print("Write Speed Test")
+    print(
+        (
+            "######################\n"
+            "## Write Speed Test ##\n"
+            "######################\n"
+        )
+    )
 
     test_write_senoidal_data_points_speed()
     test_write_noisy_senoidal_data_points_speed()
@@ -63,7 +75,9 @@ def main():
     test_write_nan_data_point_type_speed()
     test_write_zero_data_point_type_speed()
 
-    print("File Size Test")
+    print(
+        ("\n####################\n" "## File Size Test ##\n" "####################\n")
+    )
 
     test_file_size_in_senoidal_data_points()
     test_file_size_in_noisy_senoidal_data_points()
@@ -71,6 +85,21 @@ def main():
     test_file_size_in_negative_infinity_data_type_data_points()
     test_file_size_in_nan_data_type_data_points()
     test_file_size_in_zero_data_type_data_points()
+
+    print(
+        (
+            "\n#####################\n"
+            "## Read Speed Test ##\n"
+            "#####################\n"
+        )
+    )
+
+    test_read_senoidal_data_points_speed()
+    test_read_noisy_senoidal_data_points_speed()
+    test_read_infinity_data_point_type_speed()
+    test_read_negative_infinity_data_point_type_speed()
+    test_read_nan_data_point_type_speed()
+    test_read_zero_data_point_type_speed()
 
 
 if __name__ == "__main__":
