@@ -1,7 +1,9 @@
+from dataclasses import dataclass
 import timeit
 from os import remove as remove_file, listdir
 from os.path import join
 
+# import numpy as np
 from scipy import stats
 
 from generators import (
@@ -80,6 +82,43 @@ def print_scipy_stats_ratio(title: str, csv_scipy_stats, bin_scipy_stats):
     print(to_print)
 
 
+@dataclass
+class TableStats:
+    test_title: str
+    sample_size: int
+    min: float
+    p1: float
+    p10: float
+    p50: float
+    p90: float
+    p99: float
+    p99_9: float
+    p99_99: float
+    max: float
+
+    def __str__(self) -> str:
+        return (
+            f"{self.test_title} | "
+            f"{self.sample_size} | "
+            f"{self.min} | "
+            f"{self.p1} | "
+            f"{self.p10} | "
+            f"{self.p50} | "
+            f"{self.p90} | "
+            f"{self.p99} | "
+            f"{self.p99_9} | "
+            f"{self.p99_99} | "
+            f"{self.max}"
+        )
+
+
+def print_table_stats(data: TableStats):
+    """
+    test | sample size | min | p10 | p50 | p99 | p99.9 | p99.99 | max
+    """
+    print(str(data))
+
+
 def test_read_senoidal_data_points_speed():
     # Clean Up
     clean_up()
@@ -105,6 +144,22 @@ def test_read_senoidal_data_points_speed():
     timer = timeit.Timer(_test_reading_binary_file)
     n = 10
     results = [timer.timeit(n) / n for _ in range(100)]
+    # which_percentiles = [0, 1, 10, 50, 90, 99, 99.9, 99.99, 100]
+    # percentiles = np.percentile(results, which_percentiles)
+    # bin_table_stats = TableStats(
+    #     "senoidal binary file",
+    #     len(results),
+    #     percentiles[0],  # 0
+    #     percentiles[1],  # 1
+    #     percentiles[2],  # 10
+    #     percentiles[3],  # 50
+    #     percentiles[4],  # 90
+    #     percentiles[5],  # 99
+    #     percentiles[6],  # 99.9
+    #     percentiles[7],  # 99.99
+    #     percentiles[8],  # 100
+    # )
+    # print_table_stats(bin_table_stats)
     bin_stats = stats.describe(results)
     print_scipy_stats("senoidal binary file", bin_stats)
 
